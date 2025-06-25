@@ -1,0 +1,90 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    	xmlns:l="sap.ui.layout"
+		xmlns:flib="sap.f"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="removeDialog"
+		title="Remove Component">
+		<content>
+        	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormChangeremove"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			
+			labelSpanXL="5"
+			labelSpanL="5"
+			labelSpanM="5"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="1"
+			emptySpanL="1"
+			emptySpanM="1"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Component" />
+				<Text text="" id="removeComponentId" />
+				<Label text="SFC" />
+				<Text text="" id="removeComponentSFC" />
+				<Label text="Operation" />
+				<Text text="" id="removeComponentOperation"/>
+				
+				<!-- <Input value="{HouseNumber}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input> -->
+				<!-- <Label text="Assembly Data" />
+				<Input value="{ZIPCode}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input> -->
+				<!-- <Input value="{City}" /> -->
+				<!-- <Label text="Assembly Quantity" />
+                <Input value="" id="addComponentQuantity"/> -->
+				
+                <!-- <Label text="Assembled Date" />
+                <Input value="{City}" /> -->
+				<!-- <Select id="country" selectedKey="{Country}">
+					<items>
+						<core:Item text="England" key="England"/>
+						<core:Item text="Germany" key="Germany"/>
+						<core:Item text="USA" key="USA"/>
+					</items>
+				</Select> -->
+			</f:content>
+		</f:SimpleForm>
+        	<Panel >
+			<FlexBox
+				
+				alignItems="Center"
+				justifyContent="Center">
+				<Button text="Remove Component" type="Emphasized" class="sapUiSmallMarginEnd" press="removeComponent" />
+				
+			</FlexBox>
+		</Panel>
+	
+  <FlexBox
+				
+				alignItems="Center"
+				justifyContent="End">
+				<Button id="Rejectforremove"
+						text="Cancel"
+						press="._closeDialogRemove"
+						ariaHasPopup="Dialog" />
+				
+			</FlexBox>
+  </VBox>
+		</content>
+		
+			
+		
+	</Dialog>
+</core:FragmentDefinition>

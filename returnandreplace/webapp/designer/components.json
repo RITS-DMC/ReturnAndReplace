@@ -1,0 +1,15 @@
+{
+	"components": [
+		{
+			"id": "returnandreplace",
+			"type": "VIEW_PLUGIN",
+			"allowMultipleInstances": false,
+			"name": "rits.custom.plugins.returnandreplace.returnandreplace",
+			"propertyEditor": "rits.custom.plugins.returnandreplace.returnandreplace.builder.PropertyEditor",
+			"i18n": "rits.custom.plugins.returnandreplace.returnandreplace.i18n.i18n",
+            "productionProcessEnabled": true,
+           "productionProcessTitle": "returnandreplace",
+			"supportedPodTypes": ["WORK_CENTER","OPERATION","ORDER","OTHER","MONITOR"]
+		}   
+	]
+}

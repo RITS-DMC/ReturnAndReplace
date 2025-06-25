@@ -1,0 +1,431 @@
+<mvc:View 
+      
+		xmlns:table="sap.ui.table"	
+		xmlns:uxap="sap.uxap"
+		xmlns:m="sap.m"
+        xmlns:t="sap.ui.table"
+        xmlns:main="sap.ui.webc.main"
+       xmlns:fb="sap.ui.comp.filterbar"
+	 xmlns:grid="sap.ui.layout.cssgrid"
+xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" 
+xmlns:html="http://www.w3.org/1999/xhtml" 
+controllerName="rits.custom.plugins.returnandreplace.returnandreplace.controller.MainView" width="100%" height="100%">
+<Page>	
+	<content>
+        
+        <!-- <Panel  class="sapUiDemoFlexBoxSizeAdjustments"> -->
+        <VBox>
+			<FlexBox alignItems="Center" justifyContent="Center" alignContent="SpaceAround">
+				<Label text="SFC:" labelFor="InputValueHelp"/>
+                <Input
+                    id="InputValueHelp"
+                    class="sapUiSmallMarginBottom"
+                    type="Text"
+                    placeholder="Enter SFC"
+                    enabled="true"
+                    editable="true"
+                    showValueHelp="true"
+                    valueHelpRequest="handleValueHelp"
+                />
+				<Button text="Retrieve" width="100%" type="Transparent" class="sapUiSmallMarginEnd" press="retrieveSFCDetails">
+					
+				</Button>
+			</FlexBox>
+			<Panel id="panelId02">
+			<FlexBox justifyContent="Center">
+				<Label text="SFC: " labelFor="inputsfc" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idSFC"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					
+					
+					
+
+					<Label text="Status: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idStatus"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					
+					<Label text="Matrial: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idMaterial"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					
+					
+					<Label text="Description: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idDescription"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<Label text="Revision Level: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRevisionLevel" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+			</FlexBox>
+			<FlexBox justifyContent="Center">
+					<Label text="Shop Order: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idShopOrder"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<Label text="Router: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRouter"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					
+					<Label text="BOM: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idbom"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					
+					<Label text="Qty: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idQtyMain"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+			</FlexBox>
+			</Panel>
+			<!-- <l:BlockLayout id="blockLayout02" visible="false">
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell>
+				<HBox>
+				<Label text="SFC: " labelFor="inputsfc" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+				<Text id="idSFC" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>
+				<HBox>
+					<Label text="Shop Order: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idShopOrder"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>
+				
+				
+				
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell>
+				<HBox>
+
+					<Label text="Status: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idStatus"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>
+				<HBox>
+					<Label text="Router: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRouter"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>
+				
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell>
+				<HBox>
+					<Label text="Matrial: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idMaterial"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>				
+				
+				<HBox>
+					<Label text="BOM: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idbom"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>
+				
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell>
+				<HBox>
+					<Label text="Description " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idDescription" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>
+				<HBox>
+					<Label text="Qty: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idQtyMain"  class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				</HBox>
+				
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+            </l:BlockLayout> -->
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Replace Component"  type="Transparent" class="sapUiSmallMarginEnd" press="onOpenPopoverDialogReplace" >
+					
+				</Button>
+				<ToolbarSeparator />
+				<Button text="Add Component" type="Transparent" class="sapUiSmallMarginEnd" press="onOpenPopoverDialog" >
+					
+				</Button>
+				<ToolbarSeparator />
+				<Button text="Remove component"  type="Transparent" press="onOpenPopoverDialogforRemove" >
+					
+				</Button>
+		</Toolbar>
+            <!-- <FlexBox alignItems="Start" justifyContent="Center" alignContent="SpaceBetween">
+				<Button text="Replace Component" width="100%" type="Transparent" class="sapUiSmallMarginEnd" press="onOpenPopoverDialogReplace" >
+					
+				</Button>
+				<Button text="Add Component" width="100%" type="Transparent" class="sapUiSmallMarginEnd" press="onOpenPopoverDialog" >
+					
+				</Button>
+				<Button text="Remove component" width="100%" type="Transparent" press="onOpenPopoverDialogforRemove" >
+					
+				</Button>
+			</FlexBox> -->
+
+			<!-- <FlexBox id="idFlexThree" alignItems="Center" justifyContent="Center">
+					<Label text="Shop Order: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					
+				</FlexBox> -->
+			<!-- <m:Panel > -->
+
+			<!-- <f:Form id="FormDisplay480_12120"
+			editable="false" visible="false">
+			<f:title>
+				<core:Title text="SFC Details" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="4"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="2"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="SFC">
+							<f:fields>
+								<Text id="idSFC" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Shop Order">
+							<f:fields>
+								<Text id="idShopOrder" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Status">
+							<f:fields>
+								<Text id="idStatus" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Material">
+							<f:fields>
+								<Text id="idMaterial" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Revision Level">
+							<f:fields>
+								<Text id="idRevisionLevel" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer >
+					<f:formElements>
+						<f:FormElement label="Description">
+							<f:fields>
+								<Text id="idDescription" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Router">
+							<f:fields>
+								<Text id="idRouter" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Bom">
+							<f:fields>
+								<Text id="idbom" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Quantity">
+							<f:fields>
+								<Text id="idQtyMain" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form> -->
+				<!-- <f:SimpleForm id="SimpleFormChange480_12120"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			singleContainerFullSize="false" >
+			<f:content>
+				<core:Title text="" />
+				<Label text="SFC: " labelFor="inputsfc" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idSFC" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+					<Label text="Shop Order: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idShopOrder" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+					<Label text="Status: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idStatus" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+					<Label text="Matrial: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idMaterial" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+					<Label text="Revision Level: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRevisionLevel" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+				<core:Title text="" />
+				<Label text="Description: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idDescription" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+					<Label text="Router: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRouter" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+					<Label text="BOM: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idbom" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+					<Label text="Qty: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idQtyMain" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+			</f:content>
+		</f:SimpleForm> -->
+		<!-- <Toolbar width="100%"  class="lineTitleDebug">
+					<Label text="SFC: " labelFor="inputsfc" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idSFC" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Shop Order: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idShopOrder" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+
+					<Label text="Status: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idStatus" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Matrial: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idMaterial" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<Label text="Revision Level: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRevisionLevel" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Description: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idDescription" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Router: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRouter" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="BOM: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idbom" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Qty: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idQtyMain" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+
+					
+					
+	   
+	     
+</Toolbar> -->
+<!-- <Toolbar>
+<Label text="Revision Level: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRevisionLevel" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Description: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idDescription" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Router: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idRouter" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="BOM: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idbom" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+					<ToolbarSeparator />
+					<Label text="Qty: " labelFor="inputMaterial" class="sapUiSmallMarginTop sapUiSmallMarginBottom" />
+					<Text id="idQtyMain" class="sapUiSmallMarginTop  sapUiLargeMarginEnd sapUiSmallMarginBottom" />
+
+</Toolbar> -->
+
+			
+     <!-- </m:Panel> -->
+        </VBox>
+		<!-- </Panel> -->
+ 	
+        
+	<main:TabContainer id="tabContainerid" tabSelect="tabSelect">
+		<main:Tab  text="Serialized Components">
+			 <t:TreeTable id="treeTableId" rows="{path:'/tData', parameters: {arrayNames:['children']}}" selectionMode="Single" selectionBehavior="Row" enableSelectAll="false" ariaLabelledBy="title" visibleRowCount="15" rowSelectionChange="onRowSelectionChange">
+
+											<t:columns>
+												<t:Column width="100%">
+													<m:Label text="Component" />
+													<t:template>
+														<m:Text text="{name}" wrapping="false" />
+													</t:template>
+												</t:Column>
+												<t:Column width="100%">
+													<m:Label text="Description" />
+													<t:template>
+														<m:Text text="{description}" wrapping="false" />
+													</t:template>
+												</t:Column>
+												<t:Column width="100%">
+													<m:Label text="Operation" />
+													<t:template>
+														<m:Text text="{operation}" wrapping="false" />
+													</t:template>
+												</t:Column>
+												<t:Column width="100%">
+													<m:Label text="Quantity Required" />
+													<t:template>
+														<m:Text text="{plannedQty}" wrapping="false" />
+													</t:template>
+												</t:Column>
+												<t:Column width="100%">
+													<m:Label text="Qunatity Assembled" />
+													<t:template>
+														<m:Text text="{assembledQty}" wrapping="false" />
+													</t:template>
+												</t:Column>
+												<t:Column width="100%">
+													<m:Label text="Assembly Data" />
+													<t:template>
+														<m:Text text="{assemblyData}" wrapping="false" />
+													</t:template>
+												</t:Column>
+												<t:Column width="100%">
+													<m:Label text="Assembly Date" />
+													<t:template>
+														<m:Text text="{assyDate}" wrapping="false" />
+													</t:template>
+												</t:Column>
+												
+											</t:columns>
+										</t:TreeTable>
+
+		</main:Tab>
+		<main:Tab   text="Non-Serialized Components">
+			<t:Table id="idNonserializedTable" rows="{/tableData}" width="100%" class="classTable" selectionMode="Single" paste="onPaste" selectionBehavior="Row"  visibleRowCount="15">
+											<t:columns>
+											<t:Column>
+													<Label text="SFC" />
+													<t:template>
+														<Text text="{sfc}" />
+													</t:template>
+												</t:Column>
+												<t:Column>
+													<Label text="Component" />
+													<t:template>
+														<Text text="{component}" />
+													</t:template>
+												</t:Column>
+												<t:Column>
+													<Label text="Description" />
+													<t:template>
+														<Text text="{componentDescription}" />
+													</t:template>
+												</t:Column>
+												<t:Column>
+													<Label text="Opeartion" />
+													<t:template>
+														<Text text="{operationActivity}" />
+													</t:template>
+												</t:Column>
+												<t:Column>
+													<Label text="Quantity Required" />
+													<t:template>
+														<Text text="{requiredQuantity}" />
+													</t:template>
+												</t:Column>
+												<t:Column>
+													<Label text="Qunatity Assembled" />
+													<t:template>
+														<Text text="{assembledQuantity}" />
+													</t:template>
+												</t:Column>
+												<t:Column>
+													<Label text="Assembly Data" />
+													<t:template>
+														<Text text="{assyDate}" />
+													</t:template>
+												</t:Column>
+												
+											</t:columns>
+										</t:Table>	
+
+		</main:Tab>
+		
+	</main:TabContainer>
+		
+
+</content>	
+ </Page>       
+  
+</mvc:View>

@@ -1,0 +1,43 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <VBox>
+    <FlexBox alignItems="Center" justifyContent="SpaceAround" alignContent="SpaceAround">
+      <HBox>
+         <Label text="Material:"/>
+         <Input id="MaterilasPopUp" liveChange="onFilterChange" showValueHelp="true" valueHelpRequest="getMaterials"/>
+      </HBox>
+      <HBox>
+         <Label text="Shop Order:"/>
+         <Input id="ShopOrdersPopUp" liveChange="onFilterChange" showValueHelp="true" valueHelpRequest="getShopOrders"/>
+      </HBox>
+      <Button text="Search" width="100%" type="Transparent" class="sapUiSmallMarginEnd"/>
+       </FlexBox>
+      <Table items="{sfcModel>/sfcList}" id="sfcTableId" selectionChange="onValueHelpSelect" 
+      includeItemInSelection="true" mode="SingleSelectMaster" growing="true" growingScrollToLoad="true" growingThreshold="100"
+         >
+         <columns>
+            <Column>
+               <Label text="SFC" />
+            </Column>
+            <Column>
+               <Label text="Material" />
+            </Column>
+            <Column>
+               <Label text="Shop Order" />
+            </Column>
+            <Column>
+               <Label text="Status" />
+            </Column>
+         </columns>
+         <items>
+            <ColumnListItem>
+               <cells>
+                  <Text text="{sfcModel>sfc}" />
+                  <Text text="{sfcModel>material/material}" />
+                   <Text text="{sfcModel>order}" />
+                    <Text text="{sfcModel>status/description}" />
+               </cells>
+            </ColumnListItem>
+         </items>
+      </Table>
+   </VBox>
+</core:FragmentDefinition>

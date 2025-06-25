@@ -1,0 +1,112 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+    	xmlns:l="sap.ui.layout"
+		xmlns:flib="sap.f"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="mainDialogReplace"
+		title="Replace Component">
+		<content>
+        	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormChangeReplace"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			
+			labelSpanXL="5"
+			labelSpanL="5"
+			labelSpanM="5"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="1"
+			emptySpanL="1"
+			emptySpanM="1"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Component" />
+				<Text text="" id="replaceComponentId" />
+				<Label text="SFC" />
+				<Text text="" id="replaceComponentSFC" />
+				<Label text="Operation" />
+				<Text text="" id="replaceComponentOperation"/>
+				
+				<!-- <Input value="{HouseNumber}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input> -->
+				<!-- <Label text="Assembly Data" />
+				<Input value="{ZIPCode}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input> -->
+				<!-- <Input value="{City}" /> -->
+				<Label text="Assembly Quantity" />
+                <Input value="" id="replaceComponentQuantity"/>
+				
+                <!-- <Label text="Assembled Date" />
+                <Input value="{City}" /> -->
+				<!-- <Select id="country" selectedKey="{Country}">
+					<items>
+						<core:Item text="England" key="England"/>
+						<core:Item text="Germany" key="Germany"/>
+						<core:Item text="USA" key="USA"/>
+					</items>
+				</Select> -->
+			</f:content>
+		</f:SimpleForm>
+        	<Panel >
+			<FlexBox
+				
+				alignItems="Center"
+				justifyContent="Center">
+				<Button text="Replace Component" type="Emphasized" class="sapUiSmallMarginEnd" press="replaceComponent" />
+				
+			</FlexBox>
+		</Panel>
+	
+        <Panel>
+			 <Table id="assyDataTableReplace" items="{/yourData}">
+    <columns>
+      <Column>
+        <Text text="Data Field" />
+      </Column>
+      <Column>
+        <Text text="Data Attribute" />
+      </Column>
+      <!-- Add other columns as needed -->
+    </columns>
+    <items>
+      <ColumnListItem>
+        <cells>
+          <Text text="{dataField}" />
+          <ObjectAttribute text="{dataAttribute}" />
+          <!-- Add other cells as needed -->
+        </cells>
+      </ColumnListItem>
+    </items>
+  </Table>
+  </Panel>
+  <FlexBox
+				
+				alignItems="Center"
+				justifyContent="End">
+				<Button id="RejectReplace"
+						text="Cancel"
+						press="._closeDialogReplace"
+						ariaHasPopup="Dialog" />
+				
+			</FlexBox>
+  </VBox>
+		</content>
+		
+			
+		
+	</Dialog>
+</core:FragmentDefinition>
